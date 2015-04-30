@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 	public class ContactCreationTests  extends TestBase {
 	  @Test
 	  public void testNonEmptyContactCreation() throws Exception {
-	    openMainPage();
-	    gotoContactCreation();
+	    app.getNavigationHelper().openMainPage();
+	    app.getContactHelper().gotoContactCreation();
 	    ContactData contact = new ContactData();
 		contact.firstname = "first name";
 		contact.lastname = "last name";
@@ -22,32 +22,32 @@ import org.testng.annotations.Test;
 		contact.year ="1980";
 		contact.groupname = "group 1";
 		contact.address2 = "address2";
-		contact.home2 = "home 2";
+		contact.phone2 = "home 2";
 		
 		
 		
-	    fillContactCreation(contact);
+	    app.getContactHelper().fillContactCreation(contact);
 	    //selectBirthDate("9");
 	   // selectBirthMonth("August");
 	   // fillBirthYear("1980");
 	   // selectGroupName("group 1");
 	   // fillSecondContact("address2","home 2");
-	    submitContactCreation();
-	    returnToHomePage();
+	    app.contactHelper.submitContactCreation();
+	    app.getNavigationHelper().returnToHomePage();
 	  }
 	  
 	  @Test
 	  public void testEmptyContactCreation() throws Exception {
-	    openMainPage();
-	    gotoContactCreation();
-	    fillContactCreation(new ContactData("", "", "", "", "", "", "", "", "-", "-", "", "[none]", "", ""));
+	    app.getNavigationHelper().openMainPage();
+	    app.getContactHelper().gotoContactCreation();
+	    app.getContactHelper().fillContactCreation(new ContactData("", "", "", "", "", "", "", "", "-", "-", "", "[none]", "", ""));
 	    //selectBirthDate("-");
 	    //selectBirthMonth("-");
 	    //fillBirthYear(" ");
 	    //selectGroupName("[none]");
 	    //fillSecondContact("","");
-	    submitContactCreation();
-	    returnToHomePage();
+	    app.getContactHelper().submitContactCreation();
+	    app.getNavigationHelper().returnToHomePage();
 	  }
 
 	//private void fillSecondContact(String home2, String address2) {

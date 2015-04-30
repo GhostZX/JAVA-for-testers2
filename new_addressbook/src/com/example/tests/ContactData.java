@@ -14,7 +14,7 @@ public class ContactData {
 	public String year;
 	public String groupname;
 	public String address2;
-	public String home2;
+	public String phone2;
 
 	public ContactData() {
 	}
@@ -36,6 +36,6 @@ public class ContactData {
 		this.year = year;
 		this.groupname = groupname;
 		this.address2 = address2;
-		this.home2 = home2;
+		this.phone2 = home2;
 	}
 }
