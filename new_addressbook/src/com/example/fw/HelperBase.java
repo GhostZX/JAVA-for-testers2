@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public abstract class HelperBase {
@@ -54,8 +55,15 @@ public String closeAlertAndGetItsText() {
 protected void type(By locator, String text) {
 	if (text != null){
 	driver.findElement(locator).clear();
+	WebElement element = driver.findElement(locator);
+	element(locator).clear();
+	element(locator).sendKeys(text);
 	driver.findElement(locator).sendKeys(text);
-  }
+	}
+}
+private WebElement element(By locator) {
+
+	return null;
 }
 protected void click(By locator) {
 	driver.findElement(locator).click();

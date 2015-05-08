@@ -11,7 +11,7 @@ import org.testng.annotations.DataProvider;
 
 import com.example.fw.ApplicationManager;
 
-public class TestBase { 
+public  class TestBase { 
 	
 	 protected ApplicationManager app;
 
@@ -50,4 +50,20 @@ public class TestBase {
 				} else {
 					return "test" + rnd.nextInt();
 				}
-	  }}
+	  }
+	  @DataProvider
+		public Iterator<Object[]> randomValidContactGenerator() {  
+			List<Object[]> list = new ArrayList<Object[]>();	
+			for(int i = 0; i < 5; i++){
+			ContactData contact = new ContactData();
+				contact.firstname = generateRandomString();
+			
+			list.add(new Object[]{contact});
+		}
+			return list.iterator();
+		}
+
+	
+			
+		}
+		  
