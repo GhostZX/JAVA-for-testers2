@@ -36,8 +36,7 @@ public class ContactHelper extends HelperBase {
 	    type(By.name("email"),contact.email);
 	    
 	    type(By.name("email2"),contact.email2);
-	    
-	    
+	        
 	    selectByText(By.name("bday"), contact.date);
 	    selectByText(By.name("bmonth"), contact.month);
 	    
@@ -67,29 +66,42 @@ public class ContactHelper extends HelperBase {
 public void submitContactModification() {
 	click(By.xpath("(//input[@name='update'])[1]"));
 	
-	
 }
 
 public void deleteContact(int index) {
     click(By.xpath("(//img[@alt='Edit'])[" + (index+1) + "]"));
     click(By.xpath("(//input[@name='update'])[2]"));
+	 
+ }
 
-
+public List<ContactData> getContacts() {
+	List<ContactData> list = new ArrayList<ContactData> ();
+	List<WebElement> rows = getContactRows();
+	for (WebElement row :rows){
+	ContactData contact =   new ContactData ()
+	.setFirstName(row.findElement(By.xpath(".//td[2]")).getText())
+	.setLastName(row.findElement(By.xpath(".//td[3]")).getText());	
+	list.add(contact);
+	}
+	return list;
 }
 
- public List<ContactData> getContacts() {
-	List<ContactData> contacts = new ArrayList<ContactData>();
-	List<WebElement> contactCheckboxes = driver.findElements(By.name("selected[]"));
-	for (WebElement contactCheckbox: contactCheckboxes) {
-		ContactData contact = new ContactData();
-	String title =  contactCheckbox.getAttribute("title");
-	contact.firstname = title.substring("Select (".length(), title.length() - ")".length());
-	contacts.add(contact); 
+public List<WebElement> getContactRows() {
+	return driver.findElements((By.xpath(".//*[@id='maintable']/tbody/tr/td[3]")));
 	
-	}
-  return contacts;
-} 
+}
+
+
+
+ 
+// List<WebElement> rows = getContactRows();
+// for (WebElement row : rows) {
+  //   ContactObject contact = new ContactObject()
+    //     .setFirstName(row.findElement(By.xpath(".//td[2]")).getText())
+      //   .setLastName(row.findElement(By.xpath(".//td[3]")).getText());
+     // list.add(contact);
+ }
  
 
-}
+
  

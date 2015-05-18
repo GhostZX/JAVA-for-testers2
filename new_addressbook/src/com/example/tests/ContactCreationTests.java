@@ -18,12 +18,11 @@ import org.testng.annotations.Test;
 	  @Test(dataProvider = "randomValidContactGenerator")
 	  public void testContactCreationWithValidData(ContactData contact) throws Exception {
 	    app.getNavigationHelper().openMainPage();
-	    app.getContactHelper().gotoContactCreation();
 	    // save old state
 	    List<ContactData> oldlist = app.getContactHelper().getContacts();
 	    
 	    // action
-	  
+	    app.getContactHelper().gotoContactCreation();
 	    app.getContactHelper().fillContactCreation(contact);
 	    app.contactHelper.submitContactCreation();
 	    app.getNavigationHelper().returnToHomePage();

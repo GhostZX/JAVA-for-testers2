@@ -17,7 +17,6 @@ public class ContactData implements Comparable <ContactData>{
 	public String groupname;
 	public String address2;
 	public String phone2;
-
 	public ContactData() {
 	}
 	
@@ -84,8 +83,21 @@ public class ContactData implements Comparable <ContactData>{
 		
 		return this.firstname.toLowerCase().compareTo(other.firstname.toLowerCase());
 	}
+	
+	public ContactData setFirstName(String text) {
+		
+		return this;
+	}
+
+	public ContactData setLastName(String text) {
+		
+		return this;
+	}
+
+	}
+
+	
 
 
 	
 	
-}

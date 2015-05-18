@@ -33,6 +33,9 @@ public  class TestBase {
 		Random rnd = new Random();
 		for (int i = 0; i < 5; i++){
 			GroupData group =new GroupData();
+			// .withGroupName(generateRandomString())
+			// .withHeader(generateRandomString())
+			// .withFooter(generateRandomString());
 			group.groupname = generateRandomString();
 			group.footer= generateRandomString();
 			group.header= generateRandomString();
@@ -42,8 +45,10 @@ public  class TestBase {
 		//...
 		return list.iterator();
 	  }
-	  
-	  public String generateRandomString() {
+	  	 
+	
+
+		public String generateRandomString() {
 		  Random rnd = new Random();
 		  if (rnd.nextInt(3) == 0){
 			  return"";
@@ -56,8 +61,7 @@ public  class TestBase {
 			List<Object[]> list = new ArrayList<Object[]>();	
 			for(int i = 0; i < 5; i++){
 			ContactData contact = new ContactData();
-				contact.firstname = generateRandomString();
-			
+		    contact.firstname = generateRandomString();
 			list.add(new Object[]{contact});
 		}
 			return list.iterator();

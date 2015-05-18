@@ -55,7 +55,6 @@ public String closeAlertAndGetItsText() {
 protected void type(By locator, String text) {
 	if (text != null){
 	driver.findElement(locator).clear();
-	WebElement element = driver.findElement(locator);
 	element(locator).clear();
 	element(locator).sendKeys(text);
 	driver.findElement(locator).sendKeys(text);

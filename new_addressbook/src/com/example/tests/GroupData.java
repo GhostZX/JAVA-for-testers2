@@ -10,20 +10,14 @@ public class GroupData implements Comparable<GroupData> {
 		this.header = header;
 		this.footer = footer;
 	}
-	
-	
-	public GroupData() {
+		public GroupData() {
 		
 	}
-
-
 	@Override
 	public String toString() {
 		return "GroupData [groupname=" + groupname + ", header=" + header
 				+ ", footer=" + footer + "]";
 	}
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -56,5 +50,8 @@ public class GroupData implements Comparable<GroupData> {
 		
 		return this.groupname.toLowerCase().compareTo(other.groupname.toLowerCase());
 	}
-	
+	 public GroupData withGroupName(String generateRandomString) {
+			
+			return this;
+	 }
 }
