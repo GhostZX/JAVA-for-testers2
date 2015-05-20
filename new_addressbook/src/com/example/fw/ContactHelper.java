@@ -10,6 +10,10 @@ import com.example.tests.ContactData;
 
 
 public class ContactHelper extends HelperBase {
+	
+	public static boolean CREATION = true;
+	public static boolean MODIFICATION = true;
+	
 
 	public ContactHelper(ApplicationManager manager) {
 		super(manager);
@@ -20,30 +24,28 @@ public class ContactHelper extends HelperBase {
 		click(By.linkText("add new"));
 	}
 
-	public void fillContactCreation(ContactData contact) {
+	public void fillContactCreation(ContactData contact, boolean formType) {
 		type(By.name("firstname"),contact.firstname);
-		
 	    type(By.name("lastname"),contact.lastname);
-        
 	    type(By.name("address"),contact.address);
-	    
 	    type(By.name("home"),contact.home);
-	    
 	    type(By.name("mobile"),contact.mobile);
-	    
 	    type(By.name("work"),contact.work);
-	    
 	    type(By.name("email"),contact.email);
-	    
 	    type(By.name("email2"),contact.email2);
 	        
 	    selectByText(By.name("bday"), contact.date);
 	    selectByText(By.name("bmonth"), contact.month);
-	    
 	    type(By.name("byear"),contact.year);
 	    
+	    if (formType == CREATION){
 	  //  selectByText(By.name("new_group"), contact.groupname);
-	    
+	    }
+	    else{
+	    	//if (driver.findElement(By.name("new_group")).size() !=0) {
+	    	//	throw new Error ("Group selector exist in contact modification form");
+	    	//}
+	    }
 	    type(By.name("address2"),contact.address2);
 	    
 	    type(By.name("phone2"),contact.phone2);
@@ -93,13 +95,6 @@ public List<WebElement> getContactRows() {
 
 
 
- 
-// List<WebElement> rows = getContactRows();
-// for (WebElement row : rows) {
-  //   ContactObject contact = new ContactObject()
-    //     .setFirstName(row.findElement(By.xpath(".//td[2]")).getText())
-      //   .setLastName(row.findElement(By.xpath(".//td[3]")).getText());
-     // list.add(contact);
  }
  
 

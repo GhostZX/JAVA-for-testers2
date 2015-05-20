@@ -32,21 +32,17 @@ public  class TestBase {
 		List<Object[]> list = new ArrayList<Object[]>();
 		Random rnd = new Random();
 		for (int i = 0; i < 5; i++){
-			GroupData group =new GroupData();
-			// .withGroupName(generateRandomString())
-			// .withHeader(generateRandomString())
-			// .withFooter(generateRandomString());
-			group.groupname = generateRandomString();
-			group.footer= generateRandomString();
-			group.header= generateRandomString();
+			GroupData group =new GroupData()
+		       .withGroupName(generateRandomString())
+			   .withHeader(generateRandomString())
+			   .withFooter(generateRandomString());
 			list.add(new Object[] {group});
 		}
 		
 		//...
 		return list.iterator();
 	  }
-	  	 
-	
+		
 
 		public String generateRandomString() {
 		  Random rnd = new Random();

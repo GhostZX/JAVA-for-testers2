@@ -12,14 +12,14 @@ public class ContactRemovalTests extends TestBase{
 	@Test(dataProvider = "randomValidContactGenerator")
 	
 	public void deleteSomeContact (){
-		app.getNavigationHelper().openMainPage();
+		app.navigateTo().mainPage();
 		 // save old state
 	    List<ContactData> oldlist = app.getContactHelper().getContacts();
 	    Random rnd = new Random();
 	    int index = rnd.nextInt(oldlist.size()-1); 
 	    // action
 		app.getContactHelper().deleteContact(index);
-		app.getNavigationHelper().returnToHomePage();
+		app.navigateTo().returnToHomePage();
 		 // save new state
 		   List<ContactData> newlist = app.getContactHelper().getContacts();
 		    // compare states 
