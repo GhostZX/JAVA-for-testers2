@@ -1,5 +1,8 @@
 package com.example.tests;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -15,12 +18,14 @@ public  class TestBase {
 	
 	 protected ApplicationManager app;
 
+	@BeforeMethod
 	@BeforeTest
 	public void setUp() throws Exception {
 		app = new ApplicationManager();
 			
 	}
 
+	@AfterMethod
 	@AfterTest
 	public void tearDown() throws Exception {
 		app.stop();
@@ -56,14 +61,12 @@ public  class TestBase {
 		public Iterator<Object[]> randomValidContactGenerator() {  
 			List<Object[]> list = new ArrayList<Object[]>();	
 			for(int i = 0; i < 5; i++){
-			ContactData contact = new ContactData();
-		    contact.firstname = generateRandomString();
+			Object contact = new ContactData()
+		    .withFirstname(generateRandomString());
 			list.add(new Object[]{contact});
 		}
 			return list.iterator();
 		}
-
-	
-			
+		
 		}
 		  

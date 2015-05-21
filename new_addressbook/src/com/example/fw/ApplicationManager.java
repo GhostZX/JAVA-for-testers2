@@ -12,7 +12,7 @@ public class ApplicationManager {
 	
 	private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
-	public ContactHelper contactHelper; 
+	public  ContactHelper contactHelper; 
 	
 	public ApplicationManager(){
 		 

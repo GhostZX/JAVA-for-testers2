@@ -3,7 +3,7 @@ package com.example.tests;
 
 
 public class ContactData implements Comparable <ContactData>{
-	public String firstname;
+	private String firstname;
 	public String lastname;
 	public String address;
 	public String home;
@@ -84,14 +84,71 @@ public class ContactData implements Comparable <ContactData>{
 		return this.firstname.toLowerCase().compareTo(other.firstname.toLowerCase());
 	}
 	
-	public ContactData setFirstName(String text) {
+	public ContactData setFirstname(String text) {
 		
 		return this;
 	}
 
-	public ContactData setLastName(String text) {
-		
+	public Object withFirstname(String firstname) {
+		this.firstname = firstname;
 		return this;
+	}
+
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getHome() {
+		return home;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public String getWork() {
+		return work;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getEmail2() {
+		return email2;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public String getGroupname() {
+		return groupname;
+	}
+
+	public String getAddress2() {
+		return address2;
+	}
+
+	public String getPhone2() {
+		return phone2;
 	}
 
 	}
