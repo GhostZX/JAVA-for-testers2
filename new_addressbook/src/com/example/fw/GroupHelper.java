@@ -98,8 +98,6 @@ public class GroupHelper extends HelperBase {
 	}
 	private void submitGroupDeletion() {
 		click(By.name("delete"));
-		cachedGroups = null;
-	}
-
 	
+	}	
 }

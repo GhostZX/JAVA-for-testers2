@@ -19,12 +19,10 @@ public class ContactHelper extends HelperBase {
 		super(manager);
 		
 	}
-	
 	public ContactHelper gotoContactCreation() {
 		click(By.linkText("add new"));
 		return this; 
 	}
-	
 	 private SortedListOf<ContactData> cachedContacts;
 	
 //!!!!!!
@@ -35,9 +33,7 @@ public SortedListOf<ContactData> getContacts() {
  return cachedContacts;
 }
 	private void rebuildCache() {
-		
 		SortedListOf<ContactData> cachedContacts = new SortedListOf<ContactData> ();
-		
 		manager.navigateTo().mainPage();
 		List<WebElement> rows = getContactRows();
 		for (WebElement row :rows){
@@ -53,9 +49,7 @@ public SortedListOf<ContactData> getContacts() {
         submitContactCreation();
         rebuildCache();
         return this;
-        
 }
-
 	public ContactHelper fillContactCreation(ContactData contact, boolean formType) {
 		type(By.name("firstname"),contact.getFirstname());
 	    type(By.name("lastname"),contact.getLastname());
@@ -65,11 +59,9 @@ public SortedListOf<ContactData> getContacts() {
 	    type(By.name("work"),contact.getWork());
 	    type(By.name("email"),contact.getEmail());
 	    type(By.name("email2"),contact.getEmail2());
-	        
 	    selectByText(By.name("bday"), contact.date);
 	    selectByText(By.name("bmonth"), contact.month);
 	    type(By.name("byear"),contact.year);
-	    
 	    if (formType == CREATION){
 	  //  selectByText(By.name("new_group"), contact.groupname);
 	    }
@@ -89,7 +81,6 @@ public SortedListOf<ContactData> getContacts() {
 		    submitContactModification();
 		    rebuildCache();
 			return this; 
-
 		}
 		
 		public ContactHelper deleteContact(int index) {
@@ -103,13 +94,11 @@ public SortedListOf<ContactData> getContacts() {
 	       cachedContacts = null;
 	
 }
-		
 		public ContactHelper editContact(int index) {
 			click(By.xpath("(//img[@alt='Edit'])[" + (index +1)+ "]"));
 			return this; 
 			
 	} 
-
 		public ContactHelper submitContactCreation() {
 			click(By.name("submit"));
 			cachedContacts = null;
@@ -123,11 +112,6 @@ private ContactData setFirstname(String text) {
 // !!!!
 public List<WebElement> getContactRows() {
 	return driver.findElements((By.xpath(".//*[@id='maintable']/tbody/tr/td[3]")));
-	
 }
-
  }
- 
-
-
- 
+  
